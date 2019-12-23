@@ -693,6 +693,9 @@ function medevac.checkCloseWoundedGroup(_distance, _heliUnit, _heliName, _wounde
                     else
                         --check height!
                         local _height = _heliUnit:getPoint().y - _woundedLeader:getPoint().y
+                        if _woundedLeader:getPoint().y < 0 then -- unit is underwater
+                            _height = _heliUnit:getPoint().y
+                        end
 
                         if _height <= 20.0 then
 
